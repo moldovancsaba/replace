@@ -16,7 +16,7 @@ Allow the app to watch an input directory, queue new person images, process them
 
 ## Backend File Map
 
-### `replace/services/batch_models.py`
+### `services/batch_models.py`
 
 Defines the persistent data contracts:
 
@@ -26,7 +26,7 @@ Defines the persistent data contracts:
 
 These models are JSON-serializable and filesystem-oriented.
 
-### `replace/services/batch_store.py`
+### `services/batch_store.py`
 
 Persistent storage for workflow config and job records.
 
@@ -37,7 +37,7 @@ Responsibilities:
 - read/write per-job JSON files
 - list jobs by status/time
 
-### `replace/services/batch_queue.py`
+### `services/batch_queue.py`
 
 Persistent queue manager for batch jobs.
 
@@ -50,7 +50,7 @@ Responsibilities:
 
 ## Planned Next Files
 
-### `replace/services/batch_worker.py`
+### `services/batch_worker.py`
 
 Will:
 
@@ -59,7 +59,7 @@ Will:
 - call the existing try-on pipeline
 - save outputs and logs
 
-### `replace/routers/workflows.py`
+### `routers/workflows.py`
 
 Will expose:
 
@@ -110,4 +110,3 @@ This first backend slice is complete when:
 - batch jobs can be persisted to disk
 - duplicate input files are rejected cleanly
 - queue state survives app restart
-

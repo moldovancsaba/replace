@@ -6,9 +6,9 @@ from typing import Any
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
-from ..services.batch_models import BatchWorkflowConfig
-from ..services.batch_queue import BatchQueueError
-from ..services.batch_runtime import BatchRuntime
+from services.batch_models import BatchWorkflowConfig
+from services.batch_queue import BatchQueueError
+from services.batch_runtime import BatchRuntime
 
 
 router = APIRouter(prefix="/api/workflows", tags=["workflows"])
@@ -132,4 +132,3 @@ def enqueue_default_workflow_job(payload: EnqueuePayload) -> dict[str, Any]:
     except BatchQueueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     return job.to_dict()
-
